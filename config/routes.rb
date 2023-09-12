@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  root "homes#intro"
+  root "homes#index"
 
-  resources :homes, only: [:intro, :index], :path => 'home'
+  resources :homes, only: [:index], :path => 'home'
+  resources :groups, only: [:index, :show, :new, :edit]
 end
