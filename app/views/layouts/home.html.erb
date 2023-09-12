@@ -13,6 +13,7 @@
 
   <body>
     <main class="min-h-screen w-screen">
+      <%= render "shared/nav_menu_header", title: @title, home: @home, msg: @msg || '' %>
       <%= yield %>
     </main>
   </body>
