@@ -5,4 +5,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  root "homes#intro"
+
+  resources :homes, only: [:intro, :index], :path => 'home'
 end
