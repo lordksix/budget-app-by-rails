@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateGroupsAndSpendings < ActiveRecord::Migration[7.0]
   def change
     create_table :groups do |t|
@@ -18,7 +20,6 @@ class CreateGroupsAndSpendings < ActiveRecord::Migration[7.0]
     create_table :groups_spendings, id: false do |t|
       t.belongs_to :group
       t.belongs_to :spending
-
     end
   end
 end
