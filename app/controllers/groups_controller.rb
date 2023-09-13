@@ -1,18 +1,32 @@
 class GroupsController < ApplicationController
+  layout 'home'
   before_action :find_group, only: %i[show destroy edit update]
   before_action :authenticate_user!
   # skip_before_action :authenticate_user!, only: [:show]
   # authorize_resource only: [:show]
 
   def index
-    @groups = current_user.groups
+    @groups = current_user.groups.includes(:spendings).order(:updated_at)
     @current_user = current_user
+    @groups.each do |group|
+      total_spending = group.spendings.reduce(0.0) do |acc, item|
+        acc + item.amount
+      end
+      group.total_spending = total_spending
+    end
+    @title = 'Categories'
+    @home = true
   end
 
   def show
-    @spending = @groups.spendings.select('spendings.id', 'spendings.name', 'spendings.amount',
-                                         'spendings.groups')
+    total_spending = @group.spendings.reduce(0.0) do |acc, item|
+      acc + item.amount
+    end
+    @group.total_spending = total_spending
+    @spendings = @group.spendings.includes(:author).order(:updated_at)
     @current_user = current_user
+    @title = 'Details'
+    @home = true
   end
 
   def destroy
