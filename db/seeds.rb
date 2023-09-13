@@ -32,21 +32,17 @@ for user_position in 0..(quantity_users - 1) do
     temp_group = Group.create!(
       user: users[user_position],
       name: "Group  ##{user_position + 1} ##{group_position}",
-      icon: "Group  ##{user_position + 1} ##{group_position}"
+      icon: 'https://placehold.co/70x70'
     )
-    temp_spend = ''
     for spending_position in 1..(quantity_spendings) do
       temp_spending = Spending.create!(
         author: users[user_position],
         name: "Transaction ##{user_position + 1} ##{spending_position}",
-        amount: spending_position,
-        groups: [temp_group]
+        amount: Random.rand(20)
       )
-      temp_spend = temp_spending
+      temp_group.spendings << temp_spending
     end
-    temp_group.spendings = [temp_spend]
   end
-
 end
 
 puts "Created #{User.count} users"
