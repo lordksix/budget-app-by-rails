@@ -1,53 +1,52 @@
 require 'rails_helper'
 
-RSpec.describe "Groups", type: :request do
-  describe "GET /index" do
-    it "returns http success" do
-      get "/groups/index"
+RSpec.describe 'Groups', type: :request do
+  describe 'GET /index' do
+    it 'returns http success' do
+      get '/groups/index'
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /show" do
-    it "returns http success" do
-      get "/groups/show"
+  describe 'GET /show' do
+    it 'returns http success' do
+      get '/groups/show'
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /destroy" do
-    it "returns http success" do
-      get "/groups/destroy"
+  describe 'GET /destroy' do
+    it 'returns http success' do
+      get '/groups/destroy'
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /new" do
-    it "returns http success" do
-      get "/groups/new"
+  describe 'GET /new' do
+    it 'returns http success' do
+      get '/groups/new'
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /create" do
-    it "returns http success" do
-      get "/groups/create"
+  describe 'GET /create' do
+    it 'returns http success' do
+      get '/groups/create'
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /edit" do
-    it "returns http success" do
-      get "/groups/edit"
+  describe 'GET /edit' do
+    it 'returns http success' do
+      get '/groups/edit'
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /update" do
-    it "returns http success" do
-      get "/groups/update"
+  describe 'GET /update' do
+    it 'returns http success' do
+      get '/groups/update'
       expect(response).to have_http_status(:success)
     end
   end
-
 end
