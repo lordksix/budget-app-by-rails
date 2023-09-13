@@ -1,35 +1,52 @@
 <header class="w-full">
-	<nav aria-label="Mobile Menu" class="relative px-4 py-4 flex justify-between items-center bg-project-blue text-white">
+	<nav class="relative flex items-center justify-between px-4 py-4 text-white bg-project-blue" aria-label="Mobile Menu" >
 		<div class="lg:hidden">
-    <% if home %>
-			<button class="navbar-burger flex items-center text-white p-1">
-        <svg class="block h-10 w-10 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-          <title>Mobile menu</title>
-          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-        </svg>
-      			</button>
+      <% if home %>
+        <button class="flex items-center p-1 text-white navbar-burger">
+          <svg class="block w-10 h-10 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <title>Mobile menu</title>
+            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+          </svg>
+        </button>
       <% else %>
-		<a class="text-3xl font-bold leading-none" href="/home">
-        <svg class="block h-10 w-10 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path fill="none" d="M0 0h24v24H0z"/> <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z"/> </g> </svg>
+        <% if msg === 'Login' || msg === 'Register' %>
+          <a class="text-3xl font-bold leading-none" href="/">
+            <svg class="block w-10 h-10 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path fill="none" d="M0 0h24v24H0z"/> <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z"/> </g> </svg>
+          </a>
+        <% else %>
+          <a class="text-3xl font-bold leading-none" href="/home">
+            <svg class="block w-10 h-10 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path fill="none" d="M0 0h24v24H0z"/> <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z"/> </g> </svg>
+          </a>
         <% end %>
-		</a>
-
-		</div>
-    <p class="lg:hidden font-bold "><%= title %></p>
-		<div class="flex items-center text-white p-1 lg:hidden">
-      <% if msg %>
-        <p><%= msg %></p>
       <% end %>
 		</div>
-		<ul class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6">
+    <p class="font-bold lg:hidden "><%= title %></p>
+		<div class="flex items-center p-1 text-white lg:hidden">
+      <% if msg === 'Login' %>
+        <%= form.submit "Log in", class: "text-white actions cursor-pointer" %>
+      <% elsif msg === 'Register' %>
+        <%= form.submit "Next", class: "text-white actions cursor-pointer" %>
+      <% elsif msg === 'Search' %>
+        <button class="flex items-center p-1 text-white cursor-pointer">
+          <svg class="block w-10 h-10 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="search">
+            <g data-name="Layer 2">
+              <path d="m20.71 19.29-3.4-3.39A7.92 7.92 0 0 0 19 11a8 8 0 1 0-8 8 7.92 7.92 0 0 0 4.9-1.69l3.39 3.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 11a6 6 0 1 1 6 6 6 6 0 0 1-6-6z" data-name="search"></path>
+            </g>
+          </svg>
+
+        </button>
+      <% end %>
+		</div>
+		<ul class="absolute hidden transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6">
 			<li><a class="text-sm text-gray-400 hover:text-gray-500" href="/home">Home</a></li>
 			<li class="text-gray-300">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
 				</svg>
 			</li>
-			<li><a class="text-sm text-blue-600 font-bold" href="#">About Us</a></li>
+			<li><a class="text-sm font-bold text-blue-600" href="#">About Us</a></li>
 			<li class="text-gray-300">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
@@ -56,9 +73,9 @@
       <%= link_to "Sign up", new_user_registration_path, class: 'hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200'  %>
     <% end %>
 	</nav>
-	<div class="navbar-menu relative z-50 hidden">
-		<div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
-		<nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto" aria-label="Desktop Menu">
+	<div class="relative z-50 hidden navbar-menu">
+		<div class="fixed inset-0 bg-gray-800 opacity-25 navbar-backdrop"></div>
+		<nav class="fixed top-0 bottom-0 left-0 flex flex-col w-5/6 max-w-sm px-6 py-6 overflow-y-auto bg-white border-r" aria-label="Desktop Menu">
 			<div class="flex items-center mb-8">
 				<a class="mr-auto text-3xl font-bold leading-none" href="#">
 					<svg class="h-12" alt="logo" viewBox="0 0 10240 10240">
@@ -66,7 +83,7 @@
 			        </svg>
 				</a>
 				<button class="navbar-close">
-					<svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<svg class="w-6 h-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
 					</svg>
 				</button>
@@ -74,26 +91,26 @@
 			<div>
 				<ul>
 					<li class="mb-1">
-						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">Home</a>
+						<a class="block p-4 text-sm font-semibold text-gray-400 rounded hover:bg-blue-50 hover:text-blue-600" href="#">Home</a>
 					</li>
 					<li class="mb-1">
-						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">About Us</a>
+						<a class="block p-4 text-sm font-semibold text-gray-400 rounded hover:bg-blue-50 hover:text-blue-600" href="#">About Us</a>
 					</li>
 					<li class="mb-1">
-						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">Services</a>
+						<a class="block p-4 text-sm font-semibold text-gray-400 rounded hover:bg-blue-50 hover:text-blue-600" href="#">Services</a>
 					</li>
 					<li class="mb-1">
-						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">Pricing</a>
+						<a class="block p-4 text-sm font-semibold text-gray-400 rounded hover:bg-blue-50 hover:text-blue-600" href="#">Pricing</a>
 					</li>
 					<li class="mb-1">
-						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">Contact</a>
+						<a class="block p-4 text-sm font-semibold text-gray-400 rounded hover:bg-blue-50 hover:text-blue-600" href="#">Contact</a>
 					</li>
 				</ul>
 			</div>
 			<div class="mt-auto">
 				<div class="pt-6">
-					<a class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold bg-gray-50 hover:bg-gray-100 rounded-xl" href="#">Sign in</a>
-					<a class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700  rounded-xl" href="#">Sign Up</a>
+					<a class="block px-4 py-3 mb-3 text-xs font-semibold leading-loose text-center bg-gray-50 hover:bg-gray-100 rounded-xl" href="#">Sign in</a>
+					<a class="block px-4 py-3 mb-2 text-xs font-semibold leading-loose text-center text-white bg-blue-600 hover:bg-blue-700 rounded-xl" href="#">Sign Up</a>
 				</div>
 				<p class="my-4 text-xs text-center text-gray-400">
 					<span>Copyright © 2023</span>
@@ -102,5 +119,8 @@
 		</nav>
 	</div>
 </header>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<div class="w-full">
+  <p class="mb-2 text-center notice text-project-text"><%= notice %></p>
+  <p class="mb-2 text-center text-red-600 alert"><%= alert %></p>
+<div>
+
