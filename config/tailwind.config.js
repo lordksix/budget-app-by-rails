@@ -14,6 +14,8 @@ module.exports = {
       },
       colors: {
         'project-blue': '#3778c2',
+        'project-text': '#434b54',
+        'project-green': '#5fb523',
       }
     },
   },
