@@ -1,13 +1,13 @@
-<h1 class="text-3xl text-center">Groups pes by <b><%= @current_user.email %></b></h1>
+<%= render "shared/nav_menu_header", title: @title, home: @home, msg: @msg || '' %>
 <% if @groups.empty? %>
   <h2 class="text-center">There is no groups for now</h2>
 <% end %>
-<div class="w-10/12 mx-auto">
-    <ul>
-        <% @groups.each do |group| %>
-          <li class="my-6">
-            <%= render 'shared/recipe_card', group: group %>
-          </li>
-        <% end %>
-    </ul>
+<div class="w-full">
+  <ul>
+    <% @groups.each do |group| %>
+      <li class="my-6">
+        <%= render 'shared/group_card', group: group %>
+      </li>
+    <% end %>
+  </ul>
 </div>

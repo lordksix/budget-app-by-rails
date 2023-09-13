@@ -1,0 +1,12 @@
+<div class="w-[95%] shadow-sm shadow-project-text text-project-text sm:w-11/12 flex-col sm:flex-row flex justify-between max-w-xl gap-5 px-3 py-3 mx-auto bg-white hover:bg-gray-200 border-project-text border-1">
+  <img src="<%= group.icon %>" alt="placeholder" class="h-auto w-26"/>
+  <div class="flex flex-col justify-between w-full">
+    <%= link_to group.name , group_path(group.id), class: "font-bold mt-2 w-fit" %>
+    <p class="text-xs"><%= group.updated_at.to_date %></p>
+  </div>
+    <div class="flex flex-col justify-center">
+    <p>$<%= group.total_spending %></p>
+  </div>
+
+    <%# <%= link_to 'REMOVE', group_path(group.id), class: "text-blue-600 underline", data: { "turbo-method": :delete} %>
+</div>
