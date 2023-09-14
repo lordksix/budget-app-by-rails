@@ -1,4 +1,7 @@
-<div>
-  <h1 class="font-bold text-4xl">Spendings#edit</h1>
-  <p>Find me in app/views/spendings/edit.html.erb</p>
+<%= render "shared/nav_menu_header", title: @title, home: @home, msg: @msg || '' %>
+<div class="flex flex-col justify-center w-full max-w-3xl gap-6 mx-auto align-center">
+  <h1 class="hidden text-3xl text-center lg:block text-project-text">
+    Edit transaction by <b><%= @current_user.name %></b>
+  </h1>
+  <%= render "form", spending: @spending %>
 </div>

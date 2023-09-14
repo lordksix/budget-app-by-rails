@@ -21,10 +21,14 @@ class SpendingsController < ApplicationController
   end
 
   def new
+    @current_user = current_user
+    @title = 'New Transaction'
+    @home = 'BACK'
     @spending = Spending.new
   end
 
   def edit
+    @current_user = current_user
     @title = 'Edit Transaction'
     @home = 'BACK'
   end
@@ -75,10 +79,9 @@ class SpendingsController < ApplicationController
   end
 
   def set_group
-    @groups = Group.order(:created_at)
+    @groups = current_user.groups.order(:created_at)
   end
 
-  # Only allow a list of trusted parameters through.
   def spending_params
     params.require(:spending).permit(:name, :amount, { group_ids: [] })
   end

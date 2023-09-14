@@ -1,12 +1,13 @@
 <%= render "shared/nav_menu_header", title: @title, home: @home, msg: @msg || '' %>
-  <h1 class="hidden lg:block text-3xl text-center text-project-text mb-4">
-    Transaction Details
-  </h1>
+<h1 class="hidden lg:block text-3xl text-center text-project-text mb-4">
+  Transaction Details
+</h1>
 <%= render @spending %>
-<div class="flex flex-col items-center my-4 text-project-text">
-  <div class="flex flex-wrap gap-2">
-    <%= link_to "Edit this transaction", edit_spending_path(@spending), class: 'hover:font-bold' %> |
-    <%= link_to "Back to all transactions", spendings_path, class: 'hover:font-bold' %>
-  </div>
-  <%= button_to "Destroy this transaction", @spending, method: :delete, form_class: 'hover:font-bold' %>
+<div class="flex flex-col xs:flex-row xs:gap-2 justify-center my-4">
+  <%= link_to "Edit this transaction", edit_spending_path(@spending), class: 'hover:font-bold' %>
+  <span class="hidden xs:inline">|</span>
+  <%= link_to "Back to all transactions", spendings_path, class: 'hover:font-bold' %>
+</div>
+<div class="w-full flex mx-auto my-3 text-white max-w-xl bg-project-green px-6 py-4">
+  <%= button_to "Destroy this transaction", @spending, method: :delete, form_class: 'text-center w-full shadow-sm shadow-project-text bg-project-green border-2 border-white rounded hover:font-bold py-3' %>
 </div>
