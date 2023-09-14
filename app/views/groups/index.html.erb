@@ -3,6 +3,7 @@
   <h2 class="text-center">There is no groups for now</h2>
 <% end %>
 <div class="w-full">
+  <%= link_to "Add a new expense", new_group_path %>
   <ul>
     <% @groups.each do |group| %>
       <li class="my-6">
