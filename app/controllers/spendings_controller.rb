@@ -5,10 +5,20 @@ class SpendingsController < ApplicationController
   before_action :set_group, only: %i[new create]
 
   def index
-    @spendings = current_user.spendings
+    @spendings = current_user.spendings.order(created_at: :desc)
+    @total_spending = @spendings.reduce(0.0) do |acc, item|
+      acc + item.amount
+    end
+    @current_user = current_user
+    @title = 'All Transactions'
+    @home = 'BURGER'
   end
 
-  def show; end
+  def show
+    @current_user = current_user
+    @title = 'Transaction'
+    @home = 'BURGER'
+  end
 
   def new
     @spending = Spending.new
