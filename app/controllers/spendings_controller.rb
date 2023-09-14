@@ -17,19 +17,23 @@ class SpendingsController < ApplicationController
   def show
     @current_user = current_user
     @title = 'Transaction'
-    @home = 'BURGER'
+    @home = 'BACK'
   end
 
   def new
     @spending = Spending.new
   end
 
-  def edit; end
+  def edit
+    @title = 'Edit Transaction'
+    @home = 'BACK'
+  end
 
   def create
     @spending = Spending.new(spending_params)
     @spending.author = current_user
-
+    @title = 'New Transaction'
+    @home = 'BACK'
     respond_to do |format|
       if @spending.save
         format.html do

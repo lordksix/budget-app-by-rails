@@ -1,4 +1,12 @@
-<div>
-  <h1 class="font-bold text-4xl">Spendings#show</h1>
-  <p>Find me in app/views/spendings/show.html.erb</p>
+<%= render "shared/nav_menu_header", title: @title, home: @home, msg: @msg || '' %>
+  <h1 class="hidden lg:block text-3xl text-center text-project-text mb-4">
+    Transaction Details
+  </h1>
+<%= render @spending %>
+<div class="flex flex-col items-center my-4 text-project-text">
+  <div class="flex flex-wrap gap-2">
+    <%= link_to "Edit this transaction", edit_spending_path(@spending), class: 'hover:font-bold' %> |
+    <%= link_to "Back to all transactions", spendings_path, class: 'hover:font-bold' %>
+  </div>
+  <%= button_to "Destroy this transaction", @spending, method: :delete, form_class: 'hover:font-bold' %>
 </div>
