@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   root "homes#index"
 
   resources :groups, only: [:index], :path => 'home'
-  resources :groups, only: [:show, :new, :edit]
+  resources :groups
 end

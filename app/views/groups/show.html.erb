@@ -1,23 +1,27 @@
 <%= render "shared/nav_menu_header", title: @title, home: @home, msg: @msg || '' %>
+  <h1 class="hidden lg:block text-3xl text-center text-project-text">
+    Category Details
+  </h1>
 <%=  render "shared/group_card", group: @group %>
+<hr class="my-4 max-w-2xl mx-auto"/>
+<div class="flex flex-col items-center my-4 text-project-text">
+  <div>
+    <%= link_to "Edit this Categories", edit_group_path(@group), class: 'hover:font-bold' %> |
+    <%= link_to "Back to Categories", groups_path, class: 'hover:font-bold' %>
+  </div>
+
+
+  <%= button_to "Destroy this Category", @group, method: :delete, form_class: 'hover:font-bold' %>
+  <%# <%= link_to "Add a new expense", new_spending_path %>
+</div>
+
 
 <hr class="my-4 max-w-2xl mx-auto"/>
 
-<h4 class="text-center text-2xl">Expenses:</h4>
+<h4 class="text-center text-2xl text-project-text">Expenses:</h4>
 
 <hr class="my-4 max-w-2xl mx-auto"/>
 
 <% @spendings.each do |spending| %>
   <%= render spending %>
 <% end %>
-
-<div class="flex flex-col items-center my-4">
-  <div>
-    <%= link_to "Edit this Categories", edit_group_path(@group) %> |
-    <%= link_to "Back to Categories", groups_path %>
-  </div>
-
-
-  <%= button_to "Destroy this Category", @group, method: :delete %>
-  <%# <%= link_to "Add a new expense", new_spending_path %>
-</div>

@@ -1,9 +1,15 @@
 <%= render "shared/nav_menu_header", title: @title, home: @home, msg: @msg || '' %>
+  <h1 class="hidden lg:block text-3xl text-center text-project-text">
+    Categories by <b><%= @current_user.name %></b>
+  </h1>
 <% if @groups.empty? %>
-  <h2 class="text-center">There is no groups for now</h2>
+  <h2 class="text-center text-project-text">There is no groups for now</h2>
 <% end %>
 <div class="w-full">
-  <%= link_to "Add a new expense", new_group_path %>
+  <div class="w-10/12 flex mx-auto justify-end mt-3 text-project-text max-w-xl">
+    <%= link_to "New Category", new_group_path, class: 'shadow-sm shadow-project-text bg-white px-2 py-2 rounded hover:bg-gray-200' %>
+  </div>
+
   <ul>
     <% @groups.each do |group| %>
       <li class="my-6">

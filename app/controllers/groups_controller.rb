@@ -15,7 +15,7 @@ class GroupsController < ApplicationController
       group.total_spending = total_spending
     end
     @title = 'Categories'
-    @home = true
+    @home = 'BURGER'
   end
 
   def show
@@ -26,41 +26,48 @@ class GroupsController < ApplicationController
     @spendings = @group.spendings.includes(:author).order(:updated_at)
     @current_user = current_user
     @title = 'Details'
-    @home = true
+    @home = 'BURGER'
   end
 
   def destroy
-    @groups.destroy
-    redirect_to groups_path
+    @group.destroy
+    respond_to do |format|
+      format.html { redirect_to groups_url, notice: 'Category was successfully deleted.' }
+      format.json { head :no_content }
+    end
   end
 
   def new
     @group = Group.new
     @current_user = current_user
-    @group.spendings.build
-    @spendings_map = @current_user.spendings.pluck(:name, :id, :amount)
+    @title = 'New'
+    @home = 'BACK'
   end
 
   def create
     new_group = Group.new(group_params)
     new_group.user = current_user
-    if new_group.save
-      flash[:sucess] = 'Recipe saved successfully'
-      redirect_to groups_path
-    else
-      flash[:error] = 'Error: Recipe could not be saved'
+    new_group do |format|
+      if @restaurant.save
+        format.html { redirect_to root_path, notice: 'Category was successfully created.' }
+        format.json { render :show, status: :created, location: new_group }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: new_group.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   def edit
     @current_user = current_user
-    @spendings_map = @current_user.spendings.pluck(:name, :id, :amount)
+    @home = 'BACK'
+    @title = 'Edit'
   end
 
   def update
     respond_to do |format|
       if @group.update(group_params)
-        format.html { redirect_to recipe_url(@group) }
+        format.html { redirect_to group_url(@group), notice: 'Category was successfully updated.' }
         format.json { render :show, status: :ok, location: @group }
       else
         format.html { render :edit, status: :unprocessable_entity }
