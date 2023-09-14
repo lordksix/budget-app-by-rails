@@ -5,5 +5,6 @@ class Ability
     user || User.new
     can :read, :all
     can :manage, Group, { user: }
+    can :manage, Spending, { user: }
   end
 end

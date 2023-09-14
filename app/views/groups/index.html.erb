@@ -6,10 +6,6 @@
   <h2 class="text-center text-project-text">There is no groups for now</h2>
 <% end %>
 <div class="w-full">
-  <div class="w-10/12 flex mx-auto justify-end mt-3 text-project-text max-w-xl">
-    <%= link_to "New Category", new_group_path, class: 'shadow-sm shadow-project-text bg-white px-2 py-2 rounded hover:bg-gray-200' %>
-  </div>
-
   <ul>
     <% @groups.each do |group| %>
       <li class="my-6">
@@ -17,4 +13,7 @@
       </li>
     <% end %>
   </ul>
+  <div class="w-full flex mx-auto my-3 text-white max-w-xl bg-project-green px-6 py-4">
+    <%= link_to "New Category", new_group_path, class: ' text-center w-full shadow-sm shadow-project-text bg-project-green border-2 border-white rounded hover:font-bold py-3' %>
+  </div>
 </div>

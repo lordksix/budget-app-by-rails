@@ -1,20 +1,8 @@
 <%= render "shared/nav_menu_header", title: @title, home: @home, msg: @msg || '' %>
-  <h1 class="hidden lg:block text-3xl text-center text-project-text">
-    Category Details
+  <h1 class="hidden lg:block text-3xl text-center text-project-text mb-4">
+    Transactions
   </h1>
-<%=  render "shared/group_card", group: @group %>
-<hr class="my-4 max-w-2xl mx-auto"/>
-<div class="flex flex-col items-center my-4 text-project-text">
-  <div>
-    <%= link_to "Edit this Categories", edit_group_path(@group), class: 'hover:font-bold' %> |
-    <%= link_to "Back to Categories", groups_path, class: 'hover:font-bold' %>
-  </div>
-
-
-  <%= button_to "Destroy this Category", @group, method: :delete, form_class: 'hover:font-bold' %>
-  <%# <%= link_to "Add a new expense", new_spending_path %>
-</div>
-
+<%=  render "shared/transaction_header", group: @group %>
 
 <hr class="my-4 max-w-2xl mx-auto"/>
 
@@ -25,3 +13,14 @@
 <% @spendings.each do |spending| %>
   <%= render spending %>
 <% end %>
+<div class="flex flex-col items-center my-4 text-project-text">
+  <div class="flex flex-wrap gap-2">
+    <%= link_to "Edit this Categories", edit_group_path(@group), class: 'hover:font-bold' %> |
+    <%= link_to "Back to Categories", groups_path, class: 'hover:font-bold' %>
+  </div>
+  <%= button_to "Destroy this Category", @group, method: :delete, form_class: 'hover:font-bold' %>
+</div>
+
+<div class="w-full flex mx-auto my-3 text-white max-w-xl bg-project-green px-6 py-4">
+  <%= link_to "New transaction", new_spending_path, class: ' text-center w-full shadow-sm shadow-project-text bg-project-green border-2 border-white rounded hover:font-bold py-3' %>
+</div>

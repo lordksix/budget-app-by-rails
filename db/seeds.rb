@@ -31,7 +31,7 @@ for user_position in 0..(quantity_users - 1) do
   for group_position in 1..(quantity_groups) do
     temp_group = Group.create!(
       user: users[user_position],
-      name: "Group  ##{user_position + 1} ##{group_position}",
+      name: "Category  ##{user_position + 1} ##{group_position}",
       icon: 'https://placehold.co/70x70'
     )
     for spending_position in 1..(quantity_spendings) do

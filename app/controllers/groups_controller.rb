@@ -2,11 +2,9 @@ class GroupsController < ApplicationController
   layout 'home'
   before_action :find_group, only: %i[show destroy edit update]
   before_action :authenticate_user!
-  # skip_before_action :authenticate_user!, only: [:show]
-  # authorize_resource only: [:show]
 
   def index
-    @groups = current_user.groups.includes(:spendings).order(:updated_at)
+    @groups = current_user.groups.includes(:spendings).order(updated_at: :desc)
     @current_user = current_user
     @groups.each do |group|
       total_spending = group.spendings.reduce(0.0) do |acc, item|
@@ -23,9 +21,9 @@ class GroupsController < ApplicationController
       acc + item.amount
     end
     @group.total_spending = total_spending
-    @spendings = @group.spendings.includes(:author).order(:updated_at)
+    @spendings = @group.spendings.includes(:author).order(updated_at: :desc)
     @current_user = current_user
-    @title = 'Details'
+    @title = 'Transactions'
     @home = 'BURGER'
   end
 
