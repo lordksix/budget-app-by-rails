@@ -1,0 +1,13 @@
+<%= form_with model: group, class: 'flex flex-col w-full max-w-3xl mx-auto gap-6 justify-center items-center' do |f| %>
+  <div class= 'w-full max-w-lg mx-auto mt-6 mb-4'>
+    <div class="w-full max-w-lg mx-auto">
+      <%= f.text_field :name, autofocus: true, autocomplete: "text", placeholder: "Name", class: "w-full" %>
+    </div>
+    <div class="w-full max-w-lg mx-auto">
+      <%= f.text_field :icon, autofocus: true, autocomplete: "text", placeholder: "Icon URL", class: "w-full" %>
+    </div>
+    <div class="justify-center w-full max-w-lg flex mt-4">
+      <%= f.submit class: "text-project-text actions cursor-pointer" %>
+    </div>
+  </div>
+<% end %>
