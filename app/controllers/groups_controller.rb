@@ -24,7 +24,7 @@ class GroupsController < ApplicationController
     @spendings = @group.spendings.includes(:author).order(updated_at: :desc)
     @current_user = current_user
     @title = 'Transactions'
-    @home = 'BURGER'
+    @home = 'BACK'
   end
 
   def destroy
@@ -38,7 +38,7 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     @current_user = current_user
-    @title = 'New'
+    @title = 'New Category'
     @home = 'BACK'
   end
 
@@ -59,7 +59,7 @@ class GroupsController < ApplicationController
   def edit
     @current_user = current_user
     @home = 'BACK'
-    @title = 'Edit'
+    @title = 'Edit Category'
   end
 
   def update

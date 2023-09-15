@@ -1,18 +1,6 @@
 <div class="w-full shadow-sm shadow-project-text text-project-text max-w-xl px-3 py-3 mx-auto bg-white hover:bg-gray-200 border-project-text border-1 rounded-md">
-  <div class="flex justify-between">
+  <div class="flex justify-between w-full">
     <p>Total Expenses</p>
-    <p>$<%= group.total_spending %></p>
-  </div>
-
-  <div class="flex gap-6 mt-2">
-    <img src="<%= group.icon %>" alt="placeholder" class="h-auto w-26"/>
-    <div class="flex flex-col justify-between w-full">
-      <% if @title === 'Categories' %>
-        <%= link_to group.name , group_path(group.id), class: "font-bold mt-2 w-fit" %>
-      <% else %>
-        <p class="font-bold mt-2 w-fit"><%= group.name %></p>
-      <% end %>
-      <p class="text-xs"><%= group.updated_at.to_date %></p>
-    </div>
+    <p>$<%= @total_spending %></p>
   </div>
 </div>
