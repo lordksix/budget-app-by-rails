@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'spendings/index'
-  get 'spendings/show'
-  get 'spendings/new'
-  get 'spendings/edit'
 
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -13,6 +9,6 @@ Rails.application.routes.draw do
   # root "articles#index"
   root "homes#index"
 
-  resources :groups, :path => 'home'
-  resources :spendings
+  resources :groups, only: [:index, :show, :new, :edit, :destroy, :create, :update], :path => 'home'
+  resources :spendings, only: [:index, :show, :new, :destroy, :create]
 end
