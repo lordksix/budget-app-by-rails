@@ -1,6 +1,6 @@
 <%= render "shared/nav_menu_header", title: @title, home: @home, msg: @msg || '' %>
   <h1 class="hidden text-3xl text-center lg:block text-project-text">
-    Categories by <b><%= @current_user.name %></b>
+    All transactions by <b><%= @current_user.name %></b>
   </h1>
 <% if @spendings.empty? %>
   <h2 class="text-center text-project-text">There is no transactions for now</h2>

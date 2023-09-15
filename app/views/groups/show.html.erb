@@ -11,7 +11,9 @@
 <hr class="max-w-2xl mx-auto my-4"/>
 
 <% @spendings.each do |spending| %>
-  <%= render spending %>
+  <%= link_to spending_path(spending.id) do %>
+    <%= render spending %>
+  <% end %>
 <% end %>
 <div class="flex flex-col items-center my-4 text-project-text">
   <div class="flex flex-wrap gap-2">

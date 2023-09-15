@@ -6,7 +6,7 @@
 <%= render @spending %>
 
 <div class="flex justify-center my-4">
-  <%= link_to "Back to all transactions", spendings_path, class: 'hover:font-bold' %>
+  <%= link_to "See all your transactions", spendings_path, class: 'hover:font-bold' %>
 </div>
 <div class="flex w-full max-w-xl px-6 py-4 mx-auto my-3 text-white bg-project-green">
   <%= button_to "Destroy this transaction", @spending, method: :delete, form_class: 'text-center w-full shadow-sm shadow-project-text bg-project-green border-2 border-white rounded hover:font-bold py-3' %>
