@@ -1,18 +1,20 @@
 <%= render "shared/nav_menu_header", title: @title, home: @home, msg: @msg || '' %>
-  <h1 class="hidden lg:block text-3xl text-center text-project-text">
+  <h1 class="hidden text-3xl text-center lg:block text-project-text">
     Categories by <b><%= @current_user.name %></b>
   </h1>
 <% if @spendings.empty? %>
   <h2 class="text-center text-project-text">There is no transactions for now</h2>
 <% end %>
 <%=  render "shared/transaction_header" %>
-<hr class="my-4 max-w-2xl mx-auto"/>
-<div class="w-full flex flex-col gap-4">
+<hr class="max-w-2xl mx-auto my-4"/>
+<div class="flex flex-col w-full gap-4">
   <% @spendings.each do |spending| %>
-    <%= render spending %>
+    <%= link_to spending_path(spending.id) do %>
+      <%= render spending %>
+    <% end %>
   <% end %>
 </div>
 
-<div class="w-full flex mx-auto my-3 text-white max-w-xl bg-project-green px-6 py-4">
+<div class="flex w-full max-w-xl px-6 py-4 mx-auto my-3 text-white bg-project-green">
   <%= link_to "New transaction", new_spending_path, class: ' text-center w-full shadow-sm shadow-project-text bg-project-green border-2 border-white rounded hover:font-bold py-3' %>
 </div>

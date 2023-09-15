@@ -1,7 +1,7 @@
 class SpendingsController < ApplicationController
   layout 'home'
   before_action :authenticate_user!
-  before_action :set_spending, only: %i[show edit update destroy]
+  before_action :set_spending, only: %i[show destroy]
   before_action :set_group, only: %i[new create]
 
   def index
@@ -27,12 +27,6 @@ class SpendingsController < ApplicationController
     @spending = Spending.new
   end
 
-  def edit
-    @current_user = current_user
-    @title = 'Edit Transaction'
-    @home = 'BACK'
-  end
-
   def create
     @spending = Spending.new(spending_params)
     @spending.author = current_user
@@ -46,18 +40,6 @@ class SpendingsController < ApplicationController
         format.json { render :show, status: :created, location: @spending }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @spending.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def update
-    respond_to do |format|
-      if @spending.update(spending_params)
-        format.html { redirect_to spending_url(@spending), notice: 'spending was successfully updated.' }
-        format.json { render :show, status: :ok, location: @spending }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @spending.errors, status: :unprocessable_entity }
       end
     end
@@ -83,6 +65,6 @@ class SpendingsController < ApplicationController
   end
 
   def spending_params
-    params.require(:spending).permit(:name, :amount, { group_ids: [] })
+    params.require(:spending).permit(:name, :amount, :group_ids)
   end
 end
