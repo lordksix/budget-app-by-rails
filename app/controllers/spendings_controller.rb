@@ -65,6 +65,6 @@ class SpendingsController < ApplicationController
   end
 
   def spending_params
-    params.require(:spending).permit(:name, :amount, :group_ids)
+    params.require(:spending).permit(:name, :amount, { group_ids: [] })
   end
 end
