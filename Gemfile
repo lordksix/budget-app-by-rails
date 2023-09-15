@@ -79,4 +79,4 @@ gem 'tailwindcss-rails', '~> 2.0'
 
 gem 'foreman', '~> 0.87.2'
 
-gem "font-awesome-sass", "~> 6.4"
+gem 'font-awesome-sass', '~> 6.4'
