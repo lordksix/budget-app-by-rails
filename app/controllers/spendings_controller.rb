@@ -35,7 +35,7 @@ class SpendingsController < ApplicationController
     respond_to do |format|
       if @spending.save
         format.html do
-          redirect_to group_path(@spending.groups.first), notice: 'spending was successfully created.'
+          redirect_to group_path(@spending.groups.first), notice: 'Transaction was successfully created.'
         end
         format.json { render :show, status: :created, location: @spending }
       else
@@ -49,7 +49,7 @@ class SpendingsController < ApplicationController
     @spending.destroy
 
     respond_to do |format|
-      format.html { redirect_to spendings_url, notice: 'spending was successfully destroyed.' }
+      format.html { redirect_to spendings_url, notice: 'Transaction was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

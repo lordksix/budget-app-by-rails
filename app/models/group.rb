@@ -5,6 +5,8 @@ class Group < ApplicationRecord
   validates :name, presence: { message: "can't be blank" },
                    length: { maximum: 100, message: 'is too long. Max: 100 characteres' }
 
+  validates :icon, presence: { message: "can't be blank" }
+
   before_save :update_total_spending
 
   def update_total_spending

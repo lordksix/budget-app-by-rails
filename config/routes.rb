@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   # root "articles#index"
   root "homes#index"
 
-  resources :groups, only: [:index], :path => 'home'
-  resources :groups
+  resources :groups, :path => 'home'
   resources :spendings
 end
