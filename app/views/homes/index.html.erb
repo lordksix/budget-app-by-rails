@@ -1,9 +1,9 @@
 <div class="flex flex-col items-center justify-center w-full h-screen gap-6 text-project-text">
-  <div>
+  <div class="w-full h-full flex flex-col items-center justify-end">
     <h1 class="w-full mb-4 text-5xl font-bold text-center">Budget App</h1>
     <h2 class="w-full text-2xl font-light text-center ">By lordksix</h2>
   </div>
-
+  <div class="items-center justify-end md:justify-center flex flex-col w-full h-full pb-3">
     <% if user_signed_in? %>
       <%= link_to "Continue", groups_path , class: 'inline-block py-2 px-6 bg-project-blue hover:bg-blue-600 text-white font-bold rounded-md transition duration-200 w-11/12 max-w-md text-center'  %>
       <%= button_to 'Sign out', destroy_user_session_path, form_class: 'inline-block py-2 px-6 bg-white hover:bg-gray-200 text-project-text font-bold w-11/12 max-w-md text-center rounded-md transition duration-200', method: :delete %>
@@ -11,4 +11,6 @@
       <%= link_to "Sign in", new_user_session_path, class: 'inline-block py-2 px-6 bg-project-blue hover:bg-blue-600 text-white font-bold rounded-md transition duration-200 w-11/12 max-w-md text-center'  %>
       <%= link_to "Sign up", new_user_registration_path, class: 'inline-block py-2 px-6 bg-white hover:bg-gray-200 text-project-text font-bold w-11/12 max-w-md text-center rounded-md transition duration-200'  %>
     <% end %>
+  </div>
+
 </div>
