@@ -16,6 +16,7 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+  - [🚀 Live Demo](#live-demo)
   - [💻 Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
@@ -34,7 +35,7 @@
 
 **Budget by Lordksix** is a Ruby on Rails web application with PostgreSQL as database. It allows to manage your budget by creating categories of expenses, and transactions for each category.
 
-For a video explanation, please [here](https://drive.google.com/file/d/14JbBBbIIK3x01RfhiV3sB9MKl3Y7_lAM/view?usp=sharing)
+For a video explanation, please [here]()
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -76,6 +77,12 @@ For a video explanation, please [here](https://drive.google.com/file/d/14JbBBbII
 - **Implement authentication and authorization**
 - **Use PostgreSQL**
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🚀 Live Demo <a name="live-demo"></a>
+>[Live Demo](https://budget-by-lordksix.onrender.com/)
+
+> [Video Presentation](https://drive.google.com/file/d/14JbBBbIIK3x01RfhiV3sB9MKl3Y7_lAM/view?usp=sharing)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 💻 Getting Started <a id="getting-started"></a>
