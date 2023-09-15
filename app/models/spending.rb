@@ -6,6 +6,7 @@ class Spending < ApplicationRecord
                    length: { maximum: 100, message: 'is too long. Max: 100 characteres' }
   validates :amount, numericality: { greater_than_or_equal_to: 0 }
 
+  validates_length_of :groups, minimum: 1
   after_save :update_total_expense
 
   private

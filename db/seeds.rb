@@ -38,9 +38,9 @@ for user_position in 0..(quantity_users - 1) do
       temp_spending = Spending.create!(
         author: users[user_position],
         name: "Transaction ##{user_position + 1} ##{spending_position}",
-        amount: Random.rand(20)
+        amount: Random.rand(20),
+        groups: [temp_group]
       )
-      temp_group.spendings << temp_spending
     end
   end
 end

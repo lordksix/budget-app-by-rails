@@ -12,8 +12,8 @@ RSpec.describe 'Spending', type: :system do
                               icon: 'https://placehold.co/70x70')
     @spending1 = Spending.create(author: @user,
                                  name: 'Test Trans',
-                                 amount: 9999.9)
-    @category1.spendings << @spending1
+                                 amount: 9999.9,
+                                 groups: [@category1])
   end
 
   before(:each) do
