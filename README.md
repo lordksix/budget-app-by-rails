@@ -12,23 +12,23 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#table-of-contents)
-- [📖 Budget by Lordksix ](#about-project)
-  - [🛠 Built With ](#built-with)
-    - [Tech Stack ](#tech-stack)
-    - [Key Features ](#key-features)
-  - [💻 Getting Started ](#getting-started)
+- [📖 Budget by Lordksix](#about-project)
+  - [🛠 Built With](#built-with)
+    - [Tech Stack](#tech-stack)
+    - [Key Features](#key-features)
+  - [💻 Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
     - [Install](#install)
     - [Usage](#usage)
     - [Run tests](#run-tests)
   - [👥 Authors](#Authors)
-  - [🔭 Future Features ](#future-features)
-  - [🤝 Contributing ](#contributing)
-  - [⭐️ Show your support ](#️support)
-  - [🙏 Acknowledgments ](#acknowledgements)
-  - [❓ FAQ ](#faq)
-  - [📝 License ](#license)
+  - [🔭 Future Features](#future-features)
+  - [🤝 Contributing](#contributing)
+  - [⭐️ Show your support](#️support)
+  - [🙏 Acknowledgments](#acknowledgements)
+  - [❓ FAQ](#faq)
+  - [📝 License](#license)
 
 # 📖 Budget by Lordksix <a id="about-project"></a>
 
@@ -65,7 +65,6 @@ For a video explanation, please [here](https://drive.google.com/file/d/14JbBBbII
   </ul>
 </details>
 
-
 ### Key Features <a id="key-features"></a>
 
 - **Gitflow**
@@ -84,6 +83,7 @@ For a video explanation, please [here](https://drive.google.com/file/d/14JbBBbII
 ### Prerequisites
 
 In order to run this project you need:
+
 - To clone or fork this repo
 - Ruby installed in your machine
 - Ruby on Rails gem installed
@@ -91,6 +91,7 @@ In order to run this project you need:
 - To modify this profile you will also need a text editor
 
 For more information on how to install ruby on your machine:
+
 - <a href="https://www.ruby-lang.org/en/documentation/installation/">How to install ruby</a>
 
 ### Setup
@@ -105,9 +106,9 @@ For example, using Ubuntu:
 ```
 
 For more information on how to clone or fork a repository:
+
 - <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository">How to clone a repo</a>
 - <a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">How to fork a repo</a>
-
 
 ### Install
 
@@ -144,7 +145,7 @@ or:
   rails s
 ```
 
-Check on db/seed.rb for pre-loaded users, posts, comments, and likes for development
+Check on db/seed.rb for pre-loaded users, groups and, spendings, and likes for development
 
 ### Run tests
 
@@ -177,6 +178,7 @@ however, if you haven't run `./bin/dev`
 ## 🔭 Future Features <a id="future-features"></a>
 
 Future changes:
+
 - Implement external authentication.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -201,7 +203,6 @@ We would like to thank Microverse for the idea for this project.
 
 Original design idea by [Gregoire Vella on Behance](https://www.behance.net/gregoirevella).
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## ❓ FAQ <a id="faq"></a>
@@ -214,6 +215,6 @@ Original design idea by [Gregoire Vella on Behance](https://www.behance.net/greg
 
 ## 📝 License <a id="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
+This project is [GNUv3](./LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
