@@ -1,19 +1,22 @@
+
 <%= render "shared/nav_menu_header", title: @title, home: @home, msg: @msg || '' %>
   <h1 class="hidden lg:block text-3xl text-center text-project-text">
     Categories by <b><%= @current_user.name %></b>
   </h1>
-<% if @groups.empty? %>
-  <h2 class="text-center text-project-text">There is no groups for now</h2>
-<% end %>
-<div class="w-full">
-  <ul>
-    <% @groups.each do |group| %>
-      <li class="my-6">
-        <%= render 'shared/group_card', group: group %>
-      </li>
+
+<div class="w-full h-full flex flex-col">
+  <% if @groups.empty? %>
+    <h2 class="text-center text-project-text">There is no groups for now</h2>
+  <% else %>
+    <ul class="w-full h-full flex flex-col">
+      <% @groups.each do |group| %>
+        <li class="my-6">
+          <%= render 'shared/group_card', group: group %>
+        </li>
+      <% end %>
+    </ul>
     <% end %>
-  </ul>
-  <div class="w-full flex mx-auto my-3 text-white max-w-xl bg-project-green px-6 py-4">
-    <%= link_to "New Category", new_group_path, class: ' text-center w-full shadow-sm shadow-project-text bg-project-green border-2 border-white rounded hover:font-bold py-3' %>
+  <div class="w-full flex mx-auto text-white max-w-3xl bg-project-green px-6 py-4 h-full flex-col justify-end items-center">
+    <%= link_to "Add New Category", new_group_path, class: ' text-center w-full shadow-sm shadow-project-text bg-project-green border-2 border-white rounded hover:font-bold py-3' %>
   </div>
 </div>

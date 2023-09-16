@@ -29,19 +29,36 @@ end
 
 for user_position in 0..(quantity_users - 1) do
   for group_position in 1..(quantity_groups) do
-    temp_group = Group.create!(
-      user: users[user_position],
-      name: "Category  ##{user_position + 1} ##{group_position}",
-      icon: 'https://placehold.co/70x70'
-    )
-    for spending_position in 1..(quantity_spendings) do
-      temp_spending = Spending.create!(
-        author: users[user_position],
-        name: "Transaction ##{user_position + 1} ##{spending_position}",
-        amount: Random.rand(20)
+    if group_position.even?
+      temp_group = Group.create!(
+        user: users[user_position],
+        name: "Category  ##{user_position + 1} ##{group_position}",
+        icon: 'https://placehold.co/170x70'
       )
-      temp_group.spendings << temp_spending
+      for spending_position in 1..(quantity_spendings) do
+        temp_spending = Spending.create!(
+          author: users[user_position],
+          name: "Transaction ##{user_position + 1} ##{spending_position}",
+          amount: Random.rand(20),
+          groups: [temp_group]
+        )
+      end
+    else
+      temp_group = Group.create!(
+        user: users[user_position],
+        name: "Category  ##{user_position + 1} ##{group_position}",
+        icon: 'https://placehold.co/70x170'
+      )
+      for spending_position in 1..(quantity_spendings) do
+        temp_spending = Spending.create!(
+          author: users[user_position],
+          name: "Transaction ##{user_position + 1} ##{spending_position}",
+          amount: Random.rand(20),
+          groups: [temp_group]
+        )
+      end
     end
+
   end
 end
 

@@ -1,5 +1,5 @@
 <div class="w-[95%] shadow-sm shadow-project-text text-project-text sm:w-11/12 flex justify-between max-w-xl gap-5 px-3 py-3 mx-auto bg-white hover:bg-gray-200 border-project-text border-1 rounded-md">
-  <img src="<%= group.icon %>" alt="placeholder" class="h-auto w-26"/>
+  <img src="<%= group.icon %>" alt="placeholder" class="h-24 w-auto max-w-[6rem]"/>
   <div class="flex flex-col justify-between w-full">
     <% if @title === 'Categories' %>
       <%= link_to group.name , group_path(group.id), class: "font-bold mt-2 w-fit" %>

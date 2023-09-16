@@ -2,12 +2,15 @@
 <div class="w-full">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <%= render "shared/nav_menu_header", title: 'LOGIN', home: false, msg: 'Login', form: f  %>
+    <h1 class="hidden text-3xl text-center lg:block text-project-text">
+      Login
+    </h1>
     <div class= 'w-full max-w-lg mx-auto mt-6 mb-4'>
       <div class="w-full max-w-lg mx-auto">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "w-full" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "w-full bg-white border-gray-300 border-t-2" %>
       </div>
       <div class="w-full max-w-lg mx-auto">
-        <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "w-full" %>
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "w-full bg-white border-gray-300 border-2" %>
       </div>
 
       <% if devise_mapping.rememberable? %>
@@ -16,10 +19,9 @@
           <%= f.label :remember_me %>
         </div>
       <% end %>
-      <div class="hidden w-full max-w-lg lg:flex lg:justify-center">
-        <%= f.submit "Login", class: "text-project-text actions cursor-pointer" %>
+      <div class="hidden w-full max-w-xl px-6 py-4 mx-auto my-3 text-white lg:flex bg-project-green">
+        <%= f.submit "Login",class: 'text-center w-full shadow-sm shadow-project-text bg-project-green border-2 border-white rounded hover:font-bold py-3' %>
       </div>
-
     </div>
   <% end %>
     <div class="flex justify-center w-full">

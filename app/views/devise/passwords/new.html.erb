@@ -1,16 +1,16 @@
-<h2>Forgot your password?</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<div class="w-full">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "shared/nav_menu_header", title: 'RECOVER PASSWORD', home: false, msg: 'Next', form: f  %>
+    <h1 class="hidden text-3xl text-center lg:block text-project-text">
+      Recover password
+    </h1>
+    <div class= 'w-full max-w-lg mx-auto mt-6 mb-4'>
+      <div class="w-full max-w-lg mx-auto">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "w-full" %>
+      </div>
+      <div class="hidden w-full max-w-xl px-6 py-4 mx-auto my-3 text-white lg:flex bg-project-green">
+        <%= f.submit "Recover",class: 'text-center w-full shadow-sm shadow-project-text bg-project-green border-2 border-white rounded hover:font-bold py-3' %>
+      </div>
+    </div>
+  <% end %>
+</div>

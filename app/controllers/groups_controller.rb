@@ -45,10 +45,10 @@ class GroupsController < ApplicationController
   def create
     new_group = Group.new(group_params)
     new_group.user = current_user
-    new_group do |format|
-      if @restaurant.save
-        format.html { redirect_to root_path, notice: 'Category was successfully created.' }
-        format.json { render :show, status: :created, location: new_group }
+    respond_to do |format|
+      if new_group.save
+        format.html { redirect_to groups_path, notice: 'Category was successfully created.' }
+        format.json { render :index, status: :created, location: new_group }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: new_group.errors, status: :unprocessable_entity }

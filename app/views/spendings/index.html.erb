@@ -1,6 +1,6 @@
 <%= render "shared/nav_menu_header", title: @title, home: @home, msg: @msg || '' %>
   <h1 class="hidden text-3xl text-center lg:block text-project-text">
-    Categories by <b><%= @current_user.name %></b>
+    All transactions by <b><%= @current_user.name %></b>
   </h1>
 <% if @spendings.empty? %>
   <h2 class="text-center text-project-text">There is no transactions for now</h2>
@@ -15,6 +15,6 @@
   <% end %>
 </div>
 
-<div class="flex w-full max-w-xl px-6 py-4 mx-auto my-3 text-white bg-project-green">
-  <%= link_to "New transaction", new_spending_path, class: ' text-center w-full shadow-sm shadow-project-text bg-project-green border-2 border-white rounded hover:font-bold py-3' %>
+<div class="w-full flex mx-auto text-white max-w-3xl bg-project-green px-6 py-4">
+  <%= link_to "Add New Transaction", new_spending_path, class: ' text-center w-full shadow-sm shadow-project-text bg-project-green border-2 border-white rounded hover:font-bold py-3' %>
 </div>

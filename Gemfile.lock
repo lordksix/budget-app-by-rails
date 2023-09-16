@@ -99,6 +99,9 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.5.0)
     erubi (1.12.0)
+    ffi (1.15.5)
+    font-awesome-sass (6.4.2)
+      sassc (~> 2.0)
     foreman (0.87.2)
     globalid (1.2.1)
       activesupport (>= 6.1)
@@ -229,6 +232,8 @@ GEM
       parser (>= 3.2.1.0)
     ruby-progressbar (1.13.0)
     rubyzip (2.3.2)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     selenium-webdriver (4.12.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -278,6 +283,7 @@ DEPENDENCIES
   capybara
   debug
   devise (~> 4.9)
+  font-awesome-sass (~> 6.4)
   foreman (~> 0.87.2)
   importmap-rails
   jbuilder
